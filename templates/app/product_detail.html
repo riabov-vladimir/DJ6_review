@@ -14,13 +14,15 @@
         <p>Отзыв от вас уже есть</p>
     {% else %}
         <p>Можете добавить отзыв</p>
+        <form action="{% url 'product_detail' product.id %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <input type="submit" value="Отправить отзыв"/>
+        </form>
     {% endif %}
 
-    <form action="{% url 'product_detail' product.id %}" method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <br>
-        <input type="submit" value="Отправить отзыв"/>
-    </form>
+<a href="{% url 'main_page' %}"><h4>назад</h4></a>
+
 </div>
 {% endblock %}

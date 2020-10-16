@@ -25,9 +25,12 @@ def product_view(request, pk):
         # логика для добавления отзыва
         pass
 
+    is_review_exist = ''
+
     context = {
         'form': form,
-        'product': product
+        'product': product,
+        'is_review_exist': is_review_exist
     }
 
     return render(request, template, context)
